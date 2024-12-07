@@ -1,0 +1,153 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link
+			rel="icon"
+			href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Freedom_of_speech.svg/1200px-Freedom_of_speech.svg.png?20200423080520"
+			type="image/x-icon"
+		/>
+		 <link rel="stylesheet" href="{% static 'rules/style.css' %}" />
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+		<title>Мой мучитель — Школа 1430</title>
+		<meta
+			name="description"
+			content="Отзывы о школе 1430 в Лианозово и Алтуфьево. Обсуждения учителей, комментарии пользователей, поддержка и общение."
+		/>
+		<meta
+			name="keywords"
+			content="школа 1430, 1430, школа лианозово, школа алтуфьево, мой мучитель, учителя 1430, школа в лианозово"
+		/>
+		<meta name="author" content="Мой Мучитель" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://ваш_сайт.ru/" />
+	</head>
+
+	<body>
+		{% csrf_token %}
+		<header class="header">
+			<a href="" class="logo"
+				><img src="{% static 'img/pero-Photoroom.png'%}" alt=""
+			/></a>
+			<div class="header__contain">
+				<div class="menu">
+					<input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
+					<label for="burger-checkbox" class="burger"></label>
+
+					<ul class="menu-list">
+						<li>
+							<a href="{% url 'main_page' %}" class="menu-item menu-head"
+								>Главная</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://t.me/maintainermuchitel"
+								class="menu-item support"
+								>Поддержка</a
+							>
+						</li>
+						<li>
+							<a href="{%url 'rules'%}" class="menu-item helper" style="color: rgb(0, 157, 255)">Правила сообщества</a>
+						</li>
+						<li>
+							<a
+								href="{%url 'about'%}"
+								class="menu-item about__project"
+								>О проекте</a
+							>
+						</li>
+						<li>
+							<a href="{%url 'teacher' 'admin' %}" class="menu-item about__us"
+								>Создатель</a
+							>
+						</li>
+
+						<li class="rules"><p class="menu-item">Все права защищены</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="telegram">
+				<a
+					href="https://t.me/denis_sneakershop"
+					class="telegram__link"
+					target="_blank"
+					alt=""
+					><img src="{% static 'img/Telegram.png'%}" alt=""
+				/></a>
+			</div>
+		</header>
+
+		<div class="wrapper__box">
+			<h1 class="rules_name">Правила использования сайта "Мой Мучитель"</h1>
+			<br />
+			<br />
+
+			<h1 class="rules_tag">1. Общие положения</h1>
+			<p class="rules_page">
+				1.1. Сайт предоставляет возможность оставлять комментарии об учителях,
+				делиться впечатлениями и опытом, связанным со школой. <br /><br />
+				1.2. Комментарии пользователей проходят предварительную модерацию.
+				Администрация сайта оставляет за собой право удалить комментарии,
+				нарушающие правила.
+			</p>
+			<h1 class="rules_tag">2. Допустимые форматы комментариев</h1>
+			<p class="rules_page">
+				2.1. Комментарии должны быть вежливыми, без оскорблений, угроз,
+				дискриминации или разжигания вражды. <br /><br />
+				2.2. Запрещены сообщения, содержащие спам, рекламу или ссылки на
+				сторонние ресурсы. <br /><br />
+				2.3. Информация, представленная в комментариях, может
+				быть основана на личных впечатлениях, но пользователи должны избегать
+				заведомо ложной информации, порочащей честь и достоинство других.
+			</p>
+			<h1 class="rules_tag">
+				3. Правила анонимности и ролевого взаимодействия
+			</h1>
+			<p class="rules_page">
+				3.1. Пользователи вправе оставлять комментарии анонимно, без указания
+				реального имени. <br /><br />
+				3.2. Авторам комментариев разрешается использовать художественный
+				вымысел и при необходимости притворяться участником или свидетелем
+				определённого инцидента для полноты изложения. <br /><br />
+				3.3. Администрация сайта не несёт ответственности за достоверность
+				информации, опубликованной пользователями, но оставляет за собой право
+				запросить дополнительные данные у автора комментария для проверки
+				фактов.
+			</p>
+			<h1 class="rules_tag">4. Запрещённое содержание</h1>
+			<p class="rules_page">
+				4.1. Запрещено размещение материалов, нарушающих законодательство РФ,
+				включая:
+				<br /><br />
+				&nbsp &nbsp &nbsp &nbspИнформацию, содержащую призывы к насилию.
+				<br /><br />
+				&nbsp &nbsp &nbsp &nbspНарушение авторских прав. <br />
+				<br />
+				4.2. Запрещены сообщения, раскрывающие персональные данные третьих лиц
+				без их согласия (ФИО, адрес, телефон и т.д.). <br />
+			</p>
+
+			<h1 class="rules_tag">5. Заключительные положения</h1>
+			<p class="rules_page">
+				5.1. Администрация сайта оставляет за собой право изменять и дополнять
+				правила без предварительного уведомления пользователей.
+				<br />
+				<br />
+				5.2. Вопросы и предложения можно направлять в раздел "Поддержка".
+			</p>
+			<br />
+			<br />
+			<br />
+			<h1 class="rules_tag_last">
+				Эти правила созданы для поддержания конструктивного и безопасного
+				общения. Спасибо за понимание и соблюдение правил!
+			</h1>
+		</div>
+	</body>
+</html>

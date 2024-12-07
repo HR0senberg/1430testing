@@ -1,0 +1,110 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link
+			rel="icon"
+			href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Freedom_of_speech.svg/1200px-Freedom_of_speech.svg.png?20200423080520"
+			type="image/x-icon"
+		/>
+		 <link rel="stylesheet" href="{% static 'aboutproject/style.css' %}" />
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+		<title>Мой мучитель — Школа 1430</title>
+		<meta
+			name="description"
+			content="Отзывы о школе 1430 в Лианозово и Алтуфьево. Обсуждения учителей, комментарии пользователей, поддержка и общение."
+		/>
+		<meta
+			name="keywords"
+			content="школа 1430, 1430, школа лианозово, школа алтуфьево, мой мучитель, учителя 1430, школа в лианозово"
+		/>
+		<meta name="author" content="Мой Мучитель" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://ваш_сайт.ru/" />
+	</head>
+
+	<body>
+		{% csrf_token %}
+		<header class="header">
+			<a href="" class="logo"
+				><img src="{% static 'img/pero-Photoroom.png'%}" alt=""
+			/></a>
+			<div class="header__contain">
+				<div class="menu">
+					<input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
+					<label for="burger-checkbox" class="burger"></label>
+
+					<ul class="menu-list">
+						<li>
+							<a href="{% url 'main_page' %}" class="menu-item menu-head"
+								>Главная</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://t.me/maintainermuchitel"
+								class="menu-item support"
+								>Поддержка</a
+							>
+						</li>
+						<li>
+							<a href="{%url 'rules'%}" class="menu-item helper">Правила сообщества</a>
+						</li>
+						<li>
+							<a
+								href="{%url 'about'%}"
+								class="menu-item about__project"
+								style="color: rgb(0, 157, 255)"
+								>О проекте</a
+							>
+						</li>
+						<li>
+							<a href="{%url 'teacher' 'admin' %}" class="menu-item about__us"
+								>Создатель</a
+							>
+						</li>
+
+						<li class="rules"><p class="menu-item">Все права защищены</p></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="telegram">
+				<a
+					href="https://t.me/denis_sneakershop"
+					class="telegram__link"
+					target="_blank"
+					alt=""
+					><img src="{% static 'img/Telegram.png'%}" alt=""
+				/></a>
+			</div>
+		</header>
+
+		<div class="wrapper__box">
+			<h1>Добро пожаловать в проект "Мой Мучитель"</h1>
+			<br />
+			<br />
+			<br />
+			<p>
+				Мы собираем отзывы и комментарии об учителях школы 1430, расположенной в
+				Лианозово. Здесь вы можете найти информацию о преподавателях.
+			</p>
+
+			<p>
+				Проект создан для родителей, учеников и всех, кто интересуется школой
+				1430 и её деятельностью. Поделитесь своим мнением, узнайте больше об
+				учителях и помогите другим сделать правильный выбор.
+			</p>
+
+			<p>
+				Задумываетесь, куда отдать ребёнка учиться? На нашем сайте собраны
+				отзывы об учителях и школе 1430 в Лианозово. Читайте, оставляйте
+				комментарии и делитесь своим мнением!
+			</p>
+		</div>
+	</body>
+</html>

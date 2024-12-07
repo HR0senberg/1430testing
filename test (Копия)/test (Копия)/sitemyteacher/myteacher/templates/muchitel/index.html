@@ -1,0 +1,482 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+
+		<link
+			rel="icon"
+			href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Freedom_of_speech.svg/1200px-Freedom_of_speech.svg.png?20200423080520"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="{% static 'muchitel/style.css' %}" />
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+    <title>Мой мучитель — Школа 1430</title>
+    <meta name="description" content="Отзывы о школе 1430 в Лианозово и Алтуфьево. Обсуждения учителей, комментарии пользователей, поддержка и общение." />
+    <meta name="keywords" content="школа 1430, 1430, школа лианозово, школа алтуфьево, мой мучитель, учителя 1430, школа в лианозово" />
+    <meta name="author" content="Мой Мучитель" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ваш_сайт.ru/" />
+
+
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<a href="" class="logo"><img src="{% static 'img/pero-Photoroom.png'%}" alt="" /></a>
+				<div class="header__contain">
+					<div class="menu">
+						<input
+							type="checkbox"
+							id="burger-checkbox"
+							class="burger-checkbox"
+						/>
+						<label for="burger-checkbox" class="burger"></label>
+
+						<ul class="menu-list">
+							<li><a href="{% url 'main_page' %}" class="menu-item menu-head">Главная</a></li>
+							<li><a href="https://t.me/maintainermuchitel" class="menu-item support">Поддержка</a></li>
+							<li>
+								<a href="{%url 'rules'%}" class="menu-item helper">Правила сообщества</a>
+							</li>
+							<li>
+								<a href="{%url 'about'%}" class="menu-item about__project">О проекте</a>
+							</li>
+							<li><a href="{%url 'teacher' 'admin' %}" class="menu-item about__us">Создатель</a></li>
+							<li class="rules"><p class="menu-item">Все права защищены</p></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="telegram">
+					<a
+						href="https://t.me/denis_sneakershop"
+						class="telegram__link"
+						target="_blank"
+						alt=""
+						><img src="{% static 'img/Telegram.png'%}" alt=""
+					/></a>
+				</div>
+			</header>
+		</div>
+		<div class = "menu__teacher__width">
+		<div class="menu__teacher">
+			<h1 class="menu__teacher__wrapper">Категории учителей</h1>
+			<ul class="menu__teacher__list">
+				<li>
+					<a href="#informatics__teacher"
+						>1. МО учителей математики, физики и информатики</a
+					>
+				</li>
+				<li>
+					<a href="#literatura__teacher"
+						>2. МО учителей русского языка и литературы</a
+					>
+				</li>
+				<li>
+					<a href="#phisics__teacher">3. МО учителей физической культуры</a>
+				</li>
+				<li><a href="#history__teacher">4. МО истории и обществознания</a></li>
+				<!-- Не сделано  -->
+				<li>
+					<a href="#english__teacher">5. МО учителей иностранного языка </a>
+				</li>
+				<li>
+					<a href="#natural__teacher">6. МО учителей естественных наук</a>
+				</li>
+				<li>
+					<a href="#draw__teacher" 
+						>7. МО учителей художественно-эстетического направления</a
+					>
+				</li>
+				<li>
+
+					<a href="#other__teacher" 
+						>8. Иные работники </a
+					>
+				</li>
+
+				<li>
+					<a href="#administration__teacher" 
+						>9. Администрация </a
+					>
+				</li>
+				<!-- Не сделана навигация -->
+			</ul>
+		</div>
+		 </div>
+		<div class="cards">
+			<div id="informatics__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>МО учителей математики, физики и информатики</h2>
+			</div>
+			<div class="colums colums__informatics__teacher">
+				{% for t in teachers %}
+				{% if t.subject in math_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+
+		<div class="cards">
+			<div id="literatura__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>МО учителей русского языка и литературы</h2>
+			</div>
+			<div class="colums colums__literatura__teacher">
+				{% for t in teachers %}
+				{% if t.subject in russ_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+		<!-- Учителя физкультуры -->
+
+		<div class="cards">
+			<div id="phisics__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>МО учителей физической культуры </h2>
+			</div>
+			<div class="colums colums__phisics__teacher">
+				{% for t in teachers %}
+				{% if t.subject in fiz_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+		<!-- Методическое объединение учителей общественных наук -->
+
+		<div class="cards">
+			<div id="history__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category"><h2>МО учителей общественных наук</h2></div>
+			<div class="colums colums__history__teacher">
+				{% for t in teachers %}
+				{% if t.subject in his_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+		<!-- МО учителей иностранного языка -->
+		<div class="cards">
+			<div id="english__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>МО учителей иностранного языка</h2>
+			</div>
+			<div class="colums colums__english__teacher">
+				{% for t in teachers %}
+				{% if t.subject in eng_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+		<!-- МО учителей естественных наук -->
+		<div class="cards">
+			<div id="natural__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category"><h2>МО учителей естественных наук</h2></div>
+			<div class="colums colums__natural__teacher">
+				{% for t in teachers %}
+				{% if t.subject in bio_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+		<!-- Методическое объединение учителей предметов художественно-эстетического направления -->
+
+		<div class="cards">
+			<div id="draw__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>МО учителей художественно-эстетического направления</h2>
+			</div>
+			<div class="colums colums__draw__teacher">
+				{% for t in teachers %}
+				{% if t.subject in izo_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject|truncatechars:18}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+
+
+
+		<!-- Иные работники  -->
+
+		<div class="cards">
+			<div id="other__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>Иные работники </h2>
+			</div>
+
+			<div class="colums colums__other__teacher">
+				{% for t in teachers %}
+				{% if t.subject in dop_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name|truncatewords:20}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+
+
+		<!-- Иные работники  -->
+
+		<div class="cards">
+			<div id="administration__teacher"></div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<div class="colums__category">
+				<h2>Администрация </h2>
+			</div>
+
+			<div class="colums colums__administration__teacher">
+				{% for t in teachers %}
+				{% if t.subject in adm_subjects %}
+				<a href="{% url 'teacher' slug=t.slug %}" class="column">
+					<div class="picture">
+						<img
+							src="{{ t.photo.url }}"
+							alt="{{t.full_name }} 1"
+						/>
+					</div>
+					<div class="name">
+						<h4>{{t.full_name|truncatewords:20}}</h4>
+					</div>
+					<div class="price">
+						<h3>{{t.subject}}</h3>
+					</div>
+
+					<div class="caption">Рейтинг скоро</div>
+					<div class="location">1430</div>
+				</a>
+				{% endif %}
+				{% endfor %}
+
+
+
+			</div>
+		</div>
+
+
+
+		<div class="scroll__div">
+			<button id="scrollToTop" class="scroll-button">▲</button>
+		</div>
+		<script>
+			// Показать кнопку, когда прокручиваем вниз
+			window.onscroll = function () {
+				var button = document.getElementById('scrollToTop')
+				if (
+					document.body.scrollTop > 100 ||
+					document.documentElement.scrollTop > 100
+				) {
+					button.style.display = 'block'
+				} else {
+					button.style.display = 'none'
+				}
+			}
+
+			// Прокрутка вверх при нажатии кнопки
+			document.getElementById('scrollToTop').onclick = function () {
+				document.body.scrollTop = 0 // Для Safari
+				document.documentElement.scrollTop = 0 // Для остального
+			}
+		</script>
+	</body>
+</html>

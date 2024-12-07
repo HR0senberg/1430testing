@@ -1,0 +1,125 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link
+			rel="icon"
+			href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Freedom_of_speech.svg/1200px-Freedom_of_speech.svg.png?20200423080520"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="{% static 'teacher/style.css' %}" />
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+    <title>Мой мучитель — Школа 1430</title>
+    <meta name="description" content="Отзывы о школе 1430 в Лианозово и Алтуфьево. Обсуждения учителей, комментарии пользователей, поддержка и общение." />
+    <meta name="keywords" content="школа 1430, 1430, школа лианозово, школа алтуфьево, мой мучитель, учителя 1430, школа в лианозово" />
+    <meta name="author" content="Мой Мучитель" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ваш_сайт.ru/" />
+
+
+	</head>
+
+	<body>
+	{% csrf_token %}
+
+		<div class="wrapper">
+			<header class="header">
+				<a href="" class="logo"><img src="{% static 'img/pero-Photoroom.png'%}" alt="" /></a>
+				<div class="header__contain">
+					<div class="menu">
+						<input
+							type="checkbox"
+							id="burger-checkbox"
+							class="burger-checkbox"
+						/>
+						<label for="burger-checkbox" class="burger"></label>
+
+						<ul class="menu-list">
+							<li><a href="{% url 'main_page' %}" class="menu-item menu-head">Главная</a></li>
+							<li><a href="https://t.me/maintainermuchitel" class="menu-item support">Поддержка</a></li>
+							<li>
+								<a href="{%url 'rules'%}" class="menu-item helper">Правила сообщества</a>
+							</li>
+							<li>
+								<a href="{%url 'about'%}" class="menu-item about__project">О проекте</a>
+							</li>
+							{% if teacher.slug == 'admin' %}
+							<li><a href="{%url 'teacher' 'admin' %}" style="color: rgb(0, 157, 255);" class="menu-item about__us">Создатель</a></li>
+							{%else%}
+							<li><a href="{%url 'teacher' 'admin' %}" class="menu-item about__us">Создатель</a></li>
+							{%endif%}
+
+							<li class="rules"><p class="menu-item">Все права защищены</p></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="telegram">
+					<a
+						href="https://t.me/denis_sneakershop"
+						class="telegram__link"
+						target="_blank"
+						alt=""
+						><img src="{% static 'img/Telegram.png'%}" alt=""
+					/></a>
+				</div>
+			</header>
+			<div class="wrapper__box">
+				<div class = "box__img">
+
+				 <img src="{{ teacher.photo.url }}" alt="{{ teacher.full_name }}" width="200px" height="auto" class = "img__img">
+				</div>
+				<div class = "box__about__teacher">
+				<div class="box__name">{{ teacher.full_name }}</div>
+				<div class="box__subject">
+					<a href="{%url 'main_page' %}">{{ teacher.subject }}</a>
+				</div>
+			  <div class="box__caption">
+				{{ teacher.description|safe }}
+				</div>
+				</div>
+				
+			</div>
+
+			<div class="box__comments">
+				<ul class= "comments__teacher">
+					{% for comment in comments %}
+            <li class = "comment">
+                {{ comment.content }}
+				<button class="menu-btn">...</button>
+        <div class="dropdown">
+            <ul>
+                <li><a href="#">Пожаловаться</a></li>
+                <!-- Можно добавить другие опции -->
+            </ul>
+        </div>
+            </li>
+        {% empty %}
+            <li>Ваш комментрий будет первым! </li>
+        {% endfor %}
+
+				</ul>
+					<form action="" class = "comments__form">
+						<textarea name="textarea" class="chat-input" placeholder="Введите сообщение..."></textarea>
+        <button class="send-button"><img src="{% static 'img/send.png' %}" alt="Send"></button>
+   
+				</form>
+				</div> 
+
+
+			<footer class ="footer">
+			<div>
+					<h1>ВНИМАНИЕ!</h1><br>Все комментарии, которые оставляют пользователи будут проходить модерацию. Просим Вас быть вежливым в чате, если вам не понравился комментарий в чате, вы можете отправить его на ручную модерацию админу. Для этого нажмите на кнопку возле комментария
+			</div>
+		</footer>
+		</div>
+		
+		<script src="{% static 'muchitel/js/script.js'%}">
+
+		</script>
+	</body>
+</html>
